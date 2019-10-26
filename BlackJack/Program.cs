@@ -11,10 +11,9 @@ namespace BlackJack
         {
             model.Game g = new model.Game();
             view.IView v = new view.SimpleView(); // new view.SwedishView();
-            view.Test t = new view.Test();
             controller.PlayGame ctrl = new controller.PlayGame();
 
-            while (ctrl.Play(g, v));
+            while (ctrl.Play(g, v)) ;
         }
     }
 }

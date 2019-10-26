@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-// using BlackJack.view;
 
 namespace BlackJack.controller
 {
     class PlayGame
-    {   // private Event e;
+    {
         public bool Play(model.Game a_game, view.IView a_view)
         {
-            // System.Console.WriteLine(e.Play);
-            // view.Test t = new view.Test();
             a_view.DisplayWelcomeMessage();
-            
+
             a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
             a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
 
@@ -22,24 +19,28 @@ namespace BlackJack.controller
                 a_view.DisplayGameOver(a_game.IsDealerWinner());
             }
 
-            int input = a_view.GetInput();
-            // TODO solve this bad dependencie between view and controller
+            BlackJack.view.MenuEvent.Event e;
 
-            // e = _cView.GetEvent(_vView);
-            if (input == 'p')
+            e = a_view.GetEvent();
+            if (e == BlackJack.view.MenuEvent.Event.Quit)
+            {
+                return false;
+            }
+            if (e == BlackJack.view.MenuEvent.Event.Start)
             {
                 a_game.NewGame();
+
             }
-            else if (input == 'h')
+            if (e == BlackJack.view.MenuEvent.Event.Hit)
             {
                 a_game.Hit();
             }
-            else if (input == 's')
+            if (e == BlackJack.view.MenuEvent.Event.Stand)
             {
                 a_game.Stand();
             }
 
-            return input != 'q';
+            return true;
         }
     }
 }

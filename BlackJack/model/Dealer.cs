@@ -13,7 +13,7 @@ namespace BlackJack.model
         private rules.INewGameStrategy m_newGameRule;
         private rules.IHitStrategy m_hitRule;
 
-
+        
         public Dealer(rules.RulesFactory a_rulesFactory)
         {
             m_newGameRule = a_rulesFactory.GetNewGameRule();
@@ -27,7 +27,7 @@ namespace BlackJack.model
                 m_deck = new Deck();
                 ClearHand();
                 a_player.ClearHand();
-                return m_newGameRule.NewGame(m_deck, this, a_player);   
+                return m_newGameRule.NewGame(m_deck, this, a_player);
             }
             return false;
         }
@@ -57,8 +57,8 @@ namespace BlackJack.model
                     c = m_deck.GetCard();
                     c.Show(true);
                     this.DealCard(c);
+                    return true;
                 }
-                return true;
             }
             return false;
         }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BlackJack.view
 {
-    class SwedishView : IView 
+    class SwedishView : IView
     {
         public void DisplayWelcomeMessage()
         {
@@ -14,10 +14,7 @@ namespace BlackJack.view
             System.Console.WriteLine("----------------------");
             System.Console.WriteLine("Skriv 'p' för att Spela, 'h' för nytt kort, 's' för att stanna 'q' för att avsluta\n");
         }
-        public int GetInput()
-        {
-            return System.Console.In.Read();
-        }
+
         public void DisplayCard(model.Card a_card)
         {
             if (a_card.GetColor() == model.Card.Color.Hidden)
@@ -28,7 +25,7 @@ namespace BlackJack.view
             {
                 String[] colors = new String[(int)model.Card.Color.Count]
                     { "Hjärter", "Spader", "Ruter", "Klöver" };
-                String[] values = new String[(int)model.Card.Value.Count] 
+                String[] values = new String[(int)model.Card.Value.Count]
                     { "två", "tre", "fyra", "fem", "sex", "sju", "åtta", "nio", "tio", "knekt", "dam", "kung", "ess" };
                 System.Console.WriteLine("{0} {1}", colors[(int)a_card.GetColor()], values[(int)a_card.GetValue()]);
             }
@@ -63,6 +60,29 @@ namespace BlackJack.view
             }
             System.Console.WriteLine("Poäng: {0}", a_score);
             System.Console.WriteLine("");
+        }
+
+        public MenuEvent.Event GetEvent()
+        {
+            char c = System.Console.ReadKey().KeyChar;
+            if (c == 'q')
+            {
+                return MenuEvent.Event.Quit;
+            }
+            if (c == 'h')
+            {
+                return MenuEvent.Event.Hit;
+            }
+            if (c == 'p')
+            {
+                return MenuEvent.Event.Start;
+            }
+            if (c == 's')
+            {
+                return MenuEvent.Event.Stand;
+            }
+
+            return MenuEvent.Event.None;
         }
     }
 }

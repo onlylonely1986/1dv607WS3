@@ -7,14 +7,17 @@ namespace BlackJack.model.rules
 {
     class RulesFactory
     {
+        // TODO här väljs det vilka regler som spelas med
         public IHitStrategy GetHitRule()
         {
-            return new BasicHitStrategy();
+            // return new BasicHitStrategy();
+            return new Soft17HitStrategy();
         }
 
         public INewGameStrategy GetNewGameRule()
         {
-            return new AmericanNewGameStrategy();
+            return new InternationalNewGameStrategy();
+            // return new AmericanNewGameStrategy();
         }
     }
 }

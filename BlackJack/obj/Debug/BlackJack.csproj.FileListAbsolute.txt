@@ -1,6 +1,0 @@
-C:\Users\Administratör\Documents\programming\1dv607WS3\BlackJack\bin\Debug\BlackJack.exe
-C:\Users\Administratör\Documents\programming\1dv607WS3\BlackJack\bin\Debug\BlackJack.pdb
-C:\Users\Administratör\Documents\programming\1dv607WS3\BlackJack\obj\Debug\BlackJack.csprojAssemblyReference.cache
-C:\Users\Administratör\Documents\programming\1dv607WS3\BlackJack\obj\Debug\BlackJack.csproj.CoreCompileInputs.cache
-C:\Users\Administratör\Documents\programming\1dv607WS3\BlackJack\obj\Debug\BlackJack.exe
-C:\Users\Administratör\Documents\programming\1dv607WS3\BlackJack\obj\Debug\BlackJack.pdb
